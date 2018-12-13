@@ -1,25 +1,65 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import MovieGridList from './container/MovieGridList'
 import './App.css';
 
+const movies = [
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/4CKtfsbNqAf0uDfpLfKQyig6SDu.jpg',
+    title: 'Aquaman',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/gB7ThItFiRFw18SsE1gWHA92eri.jpg',
+    title: 'Venom',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/qflbWgNtthGGl8nURPfffGEgZu6.jpg',
+    title: 'Animais Fantásticos: Os Crimes de Grindelwald',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/4qtIczCqcSKiaXon4XmYY0PoT74.jpg',
+    title: 'Máquinas Mortais',
+    year: '2019',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/yhIqpoYFnAra24si0JqFEWdiPOX.jpg',
+    title: 'O Predador',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/wL8qLcZt8Hyf8Z8FYH1SucNySeq.jpg',
+    title: 'Mogli: Entre Dois Mundos',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/rW0A73hjzPWVwADlCTLnjLhAFLX.jpg',
+    title: 'Liga do Kung Fu',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bUAEA2ezgUvogQVcUjwbHU3604b.jpg',
+    title: 'Um Pequeno Favor',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg',
+    title: 'Bohemian Rhapsody',
+    year: '2018',
+  },
+  {
+    image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/3BDOuDfwE7kjnwF5QQtb1LD2ptR.jpg',
+    title: 'Robin Hood - A Origem',
+    year: '2018',
+  },
+
+]
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MovieGridList movies={movies} />
       </div>
     );
   }
