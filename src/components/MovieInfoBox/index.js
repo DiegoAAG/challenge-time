@@ -7,19 +7,18 @@ import rottenEgg from './rotten-eg.png'
 
 const MovieBox = styled.div`
    color: white;
-align-content: center;
+   align-content: center;
    font-family: Helvetica;
    p {
        font-style: italic;
    }
 `
 const SmallSticker = styled.img`
-align-content: center;
-padding-left: 25%;
-padding-top: 50%;
-max-width: 40px;
-max-height: 40px;
-
+    align-content: center;
+    padding-left: 25%;
+    padding-top: 50%;
+    max-width: 40px;
+    max-height: 40px;
 `
 
 const MovieTab = styled.div`
@@ -27,7 +26,7 @@ const MovieTab = styled.div`
    margin-top
    color: white;
    margin-top: 2%;
-   background-color: #403D3D;
+   background-color: #0e1522;
    border-color: gray;
    border-width: 2px;
    border-style: solid;
@@ -47,7 +46,7 @@ const MovieTab = styled.div`
    border-radius: 5px;
 
 `
-const MovieInfoBox = ({ movieImage, movieTitle, movieYear, onPress }) => (
+const MovieInfoBox = ({ movieId, movieImage, movieTitle, movieYear, onPress }) => (
     <>
         <Visible md lg xl>
             <MovieBox onClick={onPress}>
@@ -58,7 +57,7 @@ const MovieInfoBox = ({ movieImage, movieTitle, movieYear, onPress }) => (
         </Visible>
 
         <Visible sm xs>
-            <MovieBox onClick={onPress}>
+            <MovieBox onClick={onPress(movieId)}>
                 <MovieTab>
                  <SmallSticker src={rottenEgg}/><h3>{movieTitle} ({movieYear})</h3>
                 </MovieTab>
@@ -66,8 +65,8 @@ const MovieInfoBox = ({ movieImage, movieTitle, movieYear, onPress }) => (
         </Visible>
     </>
 );
-
 MovieInfoBox.propTypes = {
+    movieId: propTypes.string.isRequired,
     movieImage: propTypes.string.isRequired,
     movieTitle: propTypes.string.isRequired,
     movieYear: propTypes.string.isRequired,
