@@ -11,12 +11,11 @@ const MovieIcons = ({ score }) => (
     <Visible xl lg md>
       <IconsBar>
         <Row>
-          <Col lg={3} md={3}>
+          <Col xl={3} lg={3} md={3}>
             <b>{score}%</b>
-            <b>User
-          Score</b>
+            <b>User</b><br/><b>Score</b>
           </Col>
-          <Col lg={6} md={6}>
+          <Col xl={6} lg={6} md={6}>
             <b> Link Icon |</b>
             <b> Link Icon |</b>
             <b> Link Icon |</b>
@@ -31,12 +30,12 @@ const MovieIcons = ({ score }) => (
     <Visible sm xs>
       <IconsBar>
         <Row>
-          <Col lg={6} md={6}>
+          <Col sm={6} xs={6}>
             <b>{score}'%'</b>
             <b>'User
           Score'</b>
           </Col>
-          <Col lg={6} md={6}>
+          <Col sm={6} xs={6}>
             <b>'==>Play Trailer'</b>
           </Col>
         </Row>

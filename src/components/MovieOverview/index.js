@@ -3,9 +3,14 @@ import propTypes from 'prop-types';
 import styled from 'styled-components';
 
 const OverviewContainer = styled.div`
+  h3 {
+    text-align: left;
+  }
 `
 
 const OverviewParagraph = styled.p`
+  text-align: left;
+
 `
 const MovieOverview = ({ overview }) => (
   <OverviewContainer>

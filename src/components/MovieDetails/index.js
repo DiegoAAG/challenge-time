@@ -1,30 +1,42 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Visible, Container, Row, Col } from 'react-grid-system';
+import styled from 'styled-components';
 import MoviePoster from '../../components/MoviePoster';
 import MovieIcons from '../../components/MovieIcons'
 import MovieOverview from '../../components/MovieOverview'
+
+const FullViewContainer = styled(Container)`
+  background-color: black;
+  color: white;
+`
+const TitleBox = styled.div`
+  text-align: left;
+  display: flex;
+`
 
 
 const MovieDetails = ({ movieImage, movieTitle, movieYear, movieScore, movieOverview }) => (
   <>
     <Visible xl lg md>
-      <Container>
+      <FullViewContainer>
         <Row>
           <Col xl={4} lg={4} md={4}>
             <MoviePoster source={movieImage} />
           </Col >
           <Col lg={8} md={8}>
-            <h3>{movieTitle}</h3><p>{movieYear}</p>
+          <TitleBox>
+            <h2>{movieTitle}</h2> <h3>({movieYear})</h3>
+          </TitleBox>
             <MovieIcons score={movieScore} />
             <MovieOverview overview={movieOverview} />
           </Col>
         </Row>
-      </Container>
+      </FullViewContainer>
     </Visible>
 
     <Visible sm xs>
-      <Container>
+      <FullViewContainer>
         <Row>
           <Col sm={3} sx={3}>
             <MoviePoster source={movieImage} />
@@ -46,7 +58,7 @@ const MovieDetails = ({ movieImage, movieTitle, movieYear, movieScore, movieOver
             <MovieOverview overview={movieOverview} />
           </Col>
         </Row>
-      </Container>
+      </FullViewContainer>
     </Visible>
   </>
 );
