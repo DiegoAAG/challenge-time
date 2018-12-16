@@ -10,24 +10,46 @@ const FullViewContainer = styled(Container)`
   background-color: black;
   color: white;
 `
-const TitleBox = styled.div`
+const TitleBoxLarge = styled.div`
   text-align: left;
   display: flex;
+  i{
+    font-weight: normal;
+    font-size: 18px;
+    color: gray;
+  };
 `
+
+const TitleBoxSmall = styled.div`
+  h2 {
+    align-content: center;
+    align-text: center;
+  };
+  i{
+    font-weight: normal;
+    font-size: 18px;
+    color: gray;
+  };
+`
+const OverviewRow = styled(Row)`
+  background-color: #0e1522
+  margin-top: 10px;
+`
+
 
 
 const MovieDetails = ({ movieImage, movieTitle, movieYear, movieScore, movieOverview }) => (
   <>
-    <Visible xl lg md>
-      <FullViewContainer>
+    <Visible xl lg>
+      <FullViewContainer fluid>
         <Row>
-          <Col xl={4} lg={4} md={4}>
+          <Col xl={4} lg={4}>
             <MoviePoster source={movieImage} />
           </Col >
-          <Col lg={8} md={8}>
-          <TitleBox>
-            <h2>{movieTitle}</h2> <h3>({movieYear})</h3>
-          </TitleBox>
+          <Col xl={8} lg={8}>
+            <TitleBoxLarge>
+              <h2>{movieTitle} <i>({movieYear})</i></h2>
+            </TitleBoxLarge>
             <MovieIcons score={movieScore} />
             <MovieOverview overview={movieOverview} />
           </Col>
@@ -35,29 +57,31 @@ const MovieDetails = ({ movieImage, movieTitle, movieYear, movieScore, movieOver
       </FullViewContainer>
     </Visible>
 
-    <Visible sm xs>
-      <FullViewContainer>
+    <Visible md sm xs>
+      <FullViewContainer fluid>
         <Row>
-          <Col sm={3} sx={3}>
+          <Col md={12} sm={12} sx={12}>
             <MoviePoster source={movieImage} />
           </Col >
-          <Col sm={6} sx={6}>
-            <h3>{movieTitle}</h3>
-          </Col>
-          <Col sm={3} sx={3}>
-            <p>{movieYear}</p>
+        </Row>
+        <Row>
+          <Col md={12} sm={12} sx={12}>
+            <TitleBoxSmall>
+              <h2>{movieTitle} <i> ({movieYear})</i></h2>           </TitleBoxSmall>
           </Col>
         </Row>
         <Row>
-          <Col sm={12} sx={12}>
+          <Col md={12} sm={12} sx={12}>
             <MovieIcons score={movieScore} />
           </Col>
         </Row>
-        <Row>
-          <Col sm={12} sx={12}>
+        <OverviewRow>
+          <Col md={1} sm={1} sx={1}/>
+          <Col md={10} sm={10} sx={10}>
             <MovieOverview overview={movieOverview} />
           </Col>
-        </Row>
+          <Col md={1} sm={1} xs={1}/>
+        </OverviewRow>
       </FullViewContainer>
     </Visible>
   </>

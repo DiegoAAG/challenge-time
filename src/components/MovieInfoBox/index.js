@@ -39,7 +39,6 @@ const MovieTab = styled.div`
        padding-left: 5%;
        max-width: 25ch;
        overflow: hidden;
-
   }
    height: 100%;
    width: 100%;

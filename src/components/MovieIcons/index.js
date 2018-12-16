@@ -21,7 +21,7 @@ const MovieIcons = ({ score }) => (
             <b> Link Icon |</b>
           </Col>
           <Col lg={3} md={3}>
-            <b>'==>Play Trailer'</b>
+            <b>>Play Trailer</b>
           </Col>
         </Row>
       </IconsBar>
@@ -31,12 +31,12 @@ const MovieIcons = ({ score }) => (
       <IconsBar>
         <Row>
           <Col sm={6} xs={6}>
-            <b>{score}'%'</b>
-            <b>'User
-          Score'</b>
+            <b>{score}%</b>
+            <b>User
+          Score</b>
           </Col>
           <Col sm={6} xs={6}>
-            <b>'==>Play Trailer'</b>
+            <b>>Play Trailer</b>
           </Col>
         </Row>
       </IconsBar>
