@@ -3,7 +3,8 @@ import { Visible } from 'react-grid-system';
 import propTypes from 'prop-types';
 import MoviePoster from '../MoviePoster'
 import styled from 'styled-components';
-import rottenEgg from './rotten-eg.png'
+//import rottenEgg from './rotten-eg.png'
+import Link from 'next/link';
 
 const MovieBox = styled.div`
    color: white;
@@ -23,7 +24,6 @@ const SmallSticker = styled.img`
 
 const MovieTab = styled.div`
    display: -webkit-inline-box;
-   margin-top
    color: white;
    margin-top: 2%;
    background-color: #0e1522;
@@ -47,23 +47,31 @@ const MovieTab = styled.div`
 `
 const MovieInfoBox = ({ movieId, movieImage, movieTitle, movieYear, onPress }) => (
     <>
-        <Visible md lg xl>
-            <MovieBox onClick={onPress}>
-                <MoviePoster source={movieImage} />
-                <h3>{movieTitle}</h3>
-                <p>{movieYear}</p>
-            </MovieBox>
-        </Visible>
+    <Visible md lg xl>
+        <Link href={`/movies/${movieId}`}>
+                <a>
+                    <MovieBox onClick={onPress}>
+                        <MoviePoster source={movieImage} />
+                        <h3>{movieTitle}</h3>
+                        <p>{movieYear}</p>
+                    </MovieBox>
+                </a>
+        </Link>
+    </Visible>
 
-        <Visible sm xs>
-            <MovieBox onClick={onPress(movieId)}>
-                <MovieTab>
-                 <SmallSticker src={rottenEgg}/><h3>{movieTitle} ({movieYear})</h3>
-                </MovieTab>
-            </MovieBox>
-        </Visible>
+    <Visible sm xs>
+        <Link href={`/movies/${movieId}`}>
+                <a>
+                    <MovieBox onClick={onPress(movieId)}>
+                        <MovieTab>
+                            <h3>{movieTitle} ({movieYear})</h3>
+                        </MovieTab>
+                    </MovieBox>
+                </a>
+        </Link>
+    </Visible>
     </>
-);
+    );
 MovieInfoBox.propTypes = {
     movieId: propTypes.string.isRequired,
     movieImage: propTypes.string.isRequired,
