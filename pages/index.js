@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import MovieGridList from './container/MovieGridList'
-import MovieFullView from './container/MovieFullView'
-import './App.css';
-
+import React from 'react';
+import MovieGridList from '../container/MovieGridList';
 const movies = [
   {
     image: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/4CKtfsbNqAf0uDfpLfKQyig6SDu.jpg',
@@ -56,32 +53,8 @@ const movies = [
   },
 ]
 
-const movie = {
-    image: 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/gB7ThItFiRFw18SsE1gWHA92eri.jpg',
-    title: 'Venom',
-    year: '2018',
-    score: 78,
-    overview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-}
-/**
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MovieGridList movies={movies} />
-      </div>
-    );
-  }
-}
- */
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MovieFullView movie={movie} />
-      </div>
-    );
-  }
-}
+const Index = () => (
+  <MovieGridList movies={movies} />
+);
 
-export default App;
+export default Index;
