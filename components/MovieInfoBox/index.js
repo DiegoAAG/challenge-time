@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import MoviePoster from '../MoviePoster'
 import styled from 'styled-components';
 import rottenEgg from './rotten-eg.png'
+import Link from 'next/link'
 
 const MovieBox = styled.div`
    color: white;
@@ -48,28 +49,42 @@ const MovieTab = styled.div`
 const MovieInfoBox = ({ movieId, movieImage, movieTitle, movieYear, onPress }) => (
     <>
         <Visible md lg xl>
-            <MovieBox onClick={onPress}>
-                <MoviePoster source={movieImage} />
-                <h3>{movieTitle}</h3>
-                <p>{movieYear}</p>
-            </MovieBox>
+            <Link href={`/movie?id=${movieId}`} as={`/movie/${movieId}`}>
+                <a>
+                    <MovieBox onClick={onPress}>
+                        <MoviePoster source={movieImage} />
+                        <h3>{movieTitle}</h3>
+                        <p>{movieYear}</p>
+                    </MovieBox>
+                </a>
+            </Link>
         </Visible>
 
         <Visible sm xs>
-            <MovieBox onClick={onPress(movieId)}>
-                <MovieTab>
-                 <SmallSticker src={rottenEgg}/><h3>{movieTitle} ({movieYear})</h3>
-                </MovieTab>
-            </MovieBox>
+            <Link as={ `/${movieId}`} href={`/movie?id=${movieId}`}>
+                <a>
+                    <MovieBox onClick={onPress(movieId)}>
+                        <MovieTab>
+                            <SmallSticker src={rottenEgg} /><h3>{movieTitle} ({movieYear})</h3>
+                        </MovieTab>
+                    </MovieBox>
+                </a>
+            </Link>
         </Visible>
     </>
 );
 MovieInfoBox.propTypes = {
-    movieId: propTypes.string.isRequired,
+    movieId: propTypes.number.isRequired,
     movieImage: propTypes.string.isRequired,
     movieTitle: propTypes.string.isRequired,
     movieYear: propTypes.string.isRequired,
     onPress: propTypes.func.isRequired,
 }
+
+MovieInfoBox.defaultProps = {
+    onClick: () => null,
+    interestMessageVisible: false,
+  };
+  
 
 export default MovieInfoBox;

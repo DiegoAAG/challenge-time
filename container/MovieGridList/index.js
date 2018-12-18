@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { Container, Row, Col } from 'react-grid-system';
 import styled from 'styled-components';
 import MovieInfoBox from '../../components/MovieInfoBox'
-import { getMovie } from '../../actions/MoviesActions'
+import { getMovie, ACCESS_MOVIE_INFO } from '../../actions/MoviesActions'
 
 
 const MovieContainer = styled(Container)`
@@ -22,7 +23,7 @@ function MovieList({movies}) {
                             movieImage={movie.image}
                             movieTitle={movie.title}
                             movieYear={movie.year}
-                            onPress={getMovie}
+                            onPress={()=> getMovie(ACCESS_MOVIE_INFO, movie.id)}
                         />
                     </Col>
                 ))}
@@ -35,4 +36,5 @@ MovieList.propTypes = {
     movies: propTypes.array.isRequired,
 }
 
-export default MovieList;
+
+export default connect()(MovieList);
