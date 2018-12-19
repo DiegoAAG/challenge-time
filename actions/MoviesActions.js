@@ -1,9 +1,16 @@
-export const ACCESS_MOVIE_INFO = 'ACCESS_MOVIE_INFO';
+export const GET_MOVIES = 'GET_MOVIES';
+export const GETTING_MOVIES = 'GETTING_MOVIES';
 
-export function getMovie(id) {
-  console.log(id)
+export function getMovies() {
   return {
-    type: ACCESS_MOVIE_INFO,
-    id,
+    type: GET_MOVIES,
   };
+}
+export function gettingMovies(loading, response, error) {
+  return {
+    type: GETTING_MOVIES,
+    loading,
+    response,
+    error,
+  }
 }

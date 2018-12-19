@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import { Container, Row, Col } from 'react-grid-system';
 import styled from 'styled-components';
 import MovieInfoBox from '../../components/MovieInfoBox'
-import { getMovie, ACCESS_MOVIE_INFO } from '../../actions/MoviesActions'
+import { getMovie as getMovieAction, ACCESS_MOVIE_INFO } from '../../actions/MoviesActions'
 
 
 const MovieContainer = styled(Container)`
@@ -23,7 +23,7 @@ function MovieList({movies}) {
                             movieImage={movie.image}
                             movieTitle={movie.title}
                             movieYear={movie.year}
-                            onPress={()=> getMovie(ACCESS_MOVIE_INFO, movie.id)}
+                            onPress={()=> getMovieAction(ACCESS_MOVIE_INFO, movie.id)}
                         />
                     </Col>
                 ))}
@@ -36,5 +36,14 @@ MovieList.propTypes = {
     movies: propTypes.array.isRequired,
 }
 
+const mapStateToProps = state => ({
+    movieId: state.movieId,
+  });
+  
+  const mapActionToProps = dispatch => ({
+    movieId: id => dispatch(getMovieAction(id)),
+  });
+  
 
-export default connect()(MovieList);
+
+export default connect(mapStateToProps, mapActionToProps)(MovieList);

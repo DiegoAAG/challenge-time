@@ -24,7 +24,6 @@ const SmallSticker = styled.img`
 
 const MovieTab = styled.div`
    display: -webkit-inline-box;
-   margin-top
    color: white;
    margin-top: 2%;
    background-color: #0e1522;

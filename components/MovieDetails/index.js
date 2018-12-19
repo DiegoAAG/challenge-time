@@ -23,7 +23,6 @@ const TitleBoxLarge = styled.div`
 const TitleBoxSmall = styled.div`
   h2 {
     align-content: center;
-    align-text: center;
   };
   i{
     font-weight: normal;
@@ -32,7 +31,7 @@ const TitleBoxSmall = styled.div`
   };
 `
 const OverviewRow = styled(Row)`
-  background-color: #0e1522
+  background-color: #0e1522;
   margin-top: 10px;
 `
 
