@@ -54,7 +54,7 @@ const movies = [
 ]
 
 const Index = () => (
-  <MovieGridList movies={movies} />
+  <MovieGridList />
 );
 
 export default Index;

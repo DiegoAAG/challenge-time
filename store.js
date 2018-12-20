@@ -1,13 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 import reducers from './reducers'
 import MoviesSaga from './sagas/moviesSaga';
+import MovieSaga from './sagas/movieSaga';
 
 function* rootSaga() {
   yield all([
-    MoviesSaga,
+    fork(MoviesSaga),
+    fork(MovieSaga),
   ]);
 }
 

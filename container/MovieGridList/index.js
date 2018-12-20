@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { connect } from 'react-redux';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'react-grid-system';
 import styled from 'styled-components';
 import MovieInfoBox from '../../components/MovieInfoBox'
-import { getMovie as getMovieAction, ACCESS_MOVIE_INFO } from '../../actions/MoviesActions'
+import { getMovies as getMoviesAction} from '../../actions/MoviesActions'
 
 
 const MovieContainer = styled(Container)`
@@ -12,18 +12,23 @@ const MovieContainer = styled(Container)`
 ` 
 
 
-function MovieList({movies}) {
+function MovieList({movies, getMovies, gettingMovies}) {
+    useEffect(() => {
+        if (gettingMovies === 'none') {
+            getMovies();
+        }
+    });
     return (
         <MovieContainer fluid>
             <Row>
                 {movies.map(movie => (
                     <Col xl={3} lg={3} md={6} sm={12} xs={12} >
                         <MovieInfoBox
-                            movieId={1}
+                            movieId={movie.id}
                             movieImage={movie.image}
                             movieTitle={movie.title}
                             movieYear={movie.year}
-                            onPress={()=> getMovieAction(ACCESS_MOVIE_INFO, movie.id)}
+                            onPress={()=> null }
                         />
                     </Col>
                 ))}
@@ -33,15 +38,18 @@ function MovieList({movies}) {
 }
 
 MovieList.propTypes = {
-    movies: propTypes.array.isRequired,
+    movies: PropTypes.array.isRequired,
+    getMovies: PropTypes.func.isRequired,
+    gettingMovies: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = state => ({
-    movieId: state.movieId,
-  });
+    movies: state.movies.movies,
+    gettingMovies: state.movies.gettingMovies,
+});
   
   const mapActionToProps = dispatch => ({
-    movieId: id => dispatch(getMovieAction(id)),
+      getMovies: () => dispatch( getMoviesAction())
   });
   
 
