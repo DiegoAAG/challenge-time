@@ -27,10 +27,10 @@ export function getMovieFromApi(movieId) {
 export async function normalizeMovie(movieFromApi) {
   const normalizedMovie = {
     id: movieFromApi.id,
-    image: `https://image.tmdb.org/t/p/w500${movieFromApi.poster_path}`,
+    image: `https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movieFromApi.poster_path}`,
     overview: movieFromApi.overview,
     title: movieFromApi.title,
-    year: movieFromApi.release_date.substring('-')[0],
+    year: movieFromApi.release_date.split('-')[0],
     score: movieFromApi.vote_average * 10,
   }
 

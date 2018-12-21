@@ -29,10 +29,10 @@ export async function normalizeMoviesList(moviesFromApi) {
   for (let i = 0; i < moviesFromApi.length; i++) {
     moviesList.push({
       id: moviesFromApi[i].id,
-      image: `https://image.tmdb.org/t/p/w500${moviesFromApi[i].poster_path}`,
+      image: `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${moviesFromApi[i].poster_path}`,
       overview: moviesFromApi[i].overview,
       title: moviesFromApi[i].title,
-      year: moviesFromApi[i].release_date.substring('-')[0],
+      year: moviesFromApi[i].release_date.split('-')[0],
       score: moviesFromApi[i].vote_average * 10,
     })
   }

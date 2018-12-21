@@ -9,6 +9,11 @@ import MovieOverview from '../../components/MovieOverview'
 const FullViewContainer = styled(Container)`
   background-color: black;
   color: white;
+  @media screen and (max-width: 480px) {
+    img {
+         width: 250px;
+    }
+}
 `
 const TitleBoxLarge = styled.div`
   text-align: left;

@@ -14,14 +14,18 @@ app.prepare().then(() => {
     return app.render(req, res, '/')
   })
 
-  server.get('/:id', (req, res) => {
-    return app.render(req, res, '/movie', Object.assign({id: req.params.id}, req.query))
+  server.get("/movie/:id", (req, res) => {
+    return app.render(req, res, "/movie", { id: req.params.id})
   })
 
-  server.get('/movie', (req, res) => {
-    if(req.query.id) return  res.redirect(`/${req.query.id}`);
-    res.redirect(301, '/');
-  })
+  // server.get('/:id', (req, res) => {
+  //   return app.render(req, res, '/movie', Object.assign({id: req.params.id}, req.query))
+  // })
+
+  // server.get('/movie', (req, res) => {
+  //   if(req.query.id) return  res.redirect(`/`);
+  //   res.redirect(301, `/${req.query.id}`);
+  // })
 
   // server.get('/posts/:id', (req, res) => {
   //   return app.render(req, res, '/posts', { id: req.params.id })

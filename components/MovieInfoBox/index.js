@@ -48,7 +48,7 @@ const MovieTab = styled.div`
 const MovieInfoBox = ({ movieId, movieImage, movieTitle, movieYear, onPress }) => (
     <>
         <Visible md lg xl>
-            <Link href={`/movie?id=${movieId}`} as={`/movie/${movieId}`}>
+            <Link href={`/movie/${movieId}`}>
                 <a>
                     <MovieBox onClick={onPress}>
                         <MoviePoster source={movieImage} />
@@ -60,7 +60,7 @@ const MovieInfoBox = ({ movieId, movieImage, movieTitle, movieYear, onPress }) =
         </Visible>
 
         <Visible sm xs>
-            <Link as={ `/${movieId}`} href={`/movie?id=${movieId}`}>
+            <Link  href={`/movie/${movieId}`}>
                 <a>
                     <MovieBox onClick={onPress(movieId)}>
                         <MovieTab>

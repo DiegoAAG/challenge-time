@@ -8,8 +8,9 @@ import { connect } from 'react-redux';
 function MovieFullView({ movie, getMovie, gettingMovie, movieId }) {
 
   useEffect(() => {
+    const id = movieId.movieId;
     if (gettingMovie === 'none') {
-      getMovie(movieId);
+      getMovie(id);
     }
   });
   return (
@@ -31,10 +32,6 @@ MovieFullView.propTypes = {
     gettingMovie: PropTypes.string.isRequired,
 }
 
-  MovieFullView.getInitialProps=  ({ query }) => {
-    const movieId = query.id;
-    return { movieId };
- }
 
 const mapStateToProps = state => ({
     movie: state.movie.movie,
