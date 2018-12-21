@@ -13,7 +13,7 @@ const MovieIcons = ({ score }) => (
         <Row>
           <Col xl={3} lg={3} md={3}>
             <b>{score}%</b>
-            <b>User</b><br/><b>Score</b>
+            <b>User Score</b>
           </Col>
           <Col xl={6} lg={6} md={6}>
             <b> Link Icon |</b>

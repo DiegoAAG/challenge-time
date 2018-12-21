@@ -7,8 +7,10 @@ import rottenEgg from './rotten-eg.png'
 import Link from 'next/link'
 
 const MovieBox = styled.div`
+    margin: 10px 10px;
    color: white;
-   align-content: center;
+   justify-content: center;
+   position: relative;
    font-family: Helvetica;
    p {
        font-style: italic;
